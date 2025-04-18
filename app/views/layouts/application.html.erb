@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Strip</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="flex m-2">
+      <%= button_to(
+        "Log Out",
+        destroy_user_session_path,
+        class:"m-3",
+        method: :delete
+      ) %>
+      <%= link_to 'Sign Up', new_user_registration_path, class:"m-3" %>
+      <%= link_to 'Sign In', new_user_session_path, class:"m-3"  %>
+      </div>
+    <main class="container mx-auto mt-28 px-5 flex">
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+      
+
+      <%= yield %>
+    </main>
+  </body>
+</html>
