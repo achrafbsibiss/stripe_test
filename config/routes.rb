@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   post 'stripe/checkout', to: 'stripe/checkout#checkout'
   get 'stripe/checkout/success', to: 'stripe/checkout#success'
   get 'stripe/checkout/cancel', to: 'stripe/checkout#cancel'
+  post 'stripe/billing_portal', to: 'stripe/billing_portal#create'
 end

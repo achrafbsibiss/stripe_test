@@ -53,7 +53,7 @@ module Stripe
             user.update(
               plan: subscription.items.data[0].price.recurring.interval,
               subscription_status: subscription.status,
-              subscription_ends_at: Time.at(subscription.current_period_end).to_datetime
+              subscription_ends_at: Time.at(subscription.items.data[0].current_period_end).to_datetime #check the errorin the current_period_end
             )
           else
             Rails.logger.error("User not found for customer ID: #{subscription.customer}")
